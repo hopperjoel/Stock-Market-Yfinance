@@ -1,0 +1,23 @@
+import mysql.connector
+import pandas as pd
+
+mytestdb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="Elmakano132!",
+    database="investing"
+)
+
+mycursor = mytestdb.cursor()
+
+mycursor.execute("SELECT* FROM graphene_industry")
+
+for x in mycursor:
+    print(x)
+    
+mycursor.execute("SELECT* FROM exchange_market")
+
+print()
+
+for y in mycursor:
+    print(y)
