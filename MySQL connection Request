@@ -10,14 +10,10 @@ mytestdb = mysql.connector.connect(
 
 mycursor = mytestdb.cursor()
 
-mycursor.execute("SELECT* FROM graphene_industry")
-
-for x in mycursor:
-    print(x)
-    
-mycursor.execute("SELECT* FROM exchange_market")
-
-print()
-
-for y in mycursor:
-    print(y)
+mycursor.execute("""CREATE TABLE exchange_market (
+company_name VARCHAR(40),
+ticker VARCHAR(40),
+market VARCHAR(40),
+currency_adjustment INT,
+PRIMARY KEY(company_name)
+);""")
